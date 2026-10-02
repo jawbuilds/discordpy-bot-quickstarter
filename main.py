@@ -60,6 +60,9 @@ class MyBot(commands.Bot):
             except Exception:
                 # Cog 하나가 망가져도 봇 전체는 켜지도록 로그만 남김
                 log.exception("Cog 로드 실패 : %s", name)
+                
+                if config.DEBUG:
+                    raise
 
         if config.PRESENCE:
             self.rotate_presence.start()
