@@ -33,7 +33,7 @@ import discord
 from discord.ext import commands, tasks
 
 from src import config
-from src.ui import CogPanel
+from src.ui.cog_panel import CogPanel
 
 log = logging.getLogger(__name__)
 
