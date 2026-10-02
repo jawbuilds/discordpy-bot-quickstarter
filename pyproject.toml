@@ -1,0 +1,16 @@
+[project]
+name = "discordpy-bot-quickstarter"
+version = "0.1.0"
+description = "discord.py로 디스코드 봇을 빠르게 시작할 수 있는 스타터 템플릿"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = [
+    "discord.py>=2.3",
+    "python-dotenv>=1.0",
+]
+[dependency-groups]
+dev = [ # 개발할 때 필요한 것
+    "pytest",
+    "ruff",
+]
