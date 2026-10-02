@@ -81,14 +81,6 @@ class MyBot(commands.Bot):
         # 연결이 끊겼다 다시 붙을 때도 호출되므로 한 번만 해야 하는 작업은 setup_hook에 두기
         log.info("Bot online : %s (debug=%s)", self.user, config.DEBUG)
 
-    async def on_command_error(self, ctx: commands.Context, error: commands.CommandError) -> None:
-        if isinstance(error, commands.CommandNotFound):
-            return
-        if isinstance(error, commands.CheckFailure):
-            await ctx.send("이 명령어를 사용할 권한이 없어요.")
-            return
-        log.error("명령어 오류 (%s)", ctx.command, exc_info=error)
-
 def is_whitelisted():
     """화이트리스트에 있는 유저나 봇 소유자만 통과시키는 체크입니다."""
  
@@ -106,7 +98,7 @@ bot = MyBot()
 async def cog_panel(ctx: commands.Context) -> None:
     """Cog 관리 패널을 엽니다."""
     names = available_cogs()
-    if not names():
+    if not names:
         await ctx.send("`cogs` 폴더에 Cog 파일이 없어요.")
         return
     view = CogPanel(ctx.bot, ctx.author.id, names, package="cogs")
