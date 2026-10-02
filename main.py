@@ -49,7 +49,11 @@ class MyBot(commands.Bot):
         # 접두사 명령어(!ping 등)를 쓰려면 필요함
         intents.message_content = True
 
-        super().__init__(command_prefix=commands.when_mentioned_or(config.DEFAULT_PREFIX), intents=intents,)
+        super().__init__(
+            command_prefix=commands.when_mentioned_or(config.DEFAULT_PREFIX),
+            intents=intents,
+            help_command=None,
+        )
         self._presence = itertools.cycle(config.PRESENCE)
 
     async def setup_hook(self) -> None:
