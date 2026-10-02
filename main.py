@@ -32,7 +32,7 @@ from pathlib import Path
 import discord
 from discord.ext import commands, tasks
 
-import config
+from src import config
 
 log = logging.getLogger(__name__)
 
