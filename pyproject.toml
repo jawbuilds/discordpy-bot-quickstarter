@@ -10,7 +10,7 @@ dependencies = [
     "python-dotenv>=1.0",
 ]
 [dependency-groups]
-dev = [ # 개발할 때 필요한 것
+dev = [
     "pytest",
     "ruff",
 ]

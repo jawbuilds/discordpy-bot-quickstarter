@@ -15,7 +15,7 @@ CANARY_TOKEN = os.getenv("CANARY_TOKEN")
 TOKEN = CANARY_TOKEN if DEBUG else STABLE_TOKEN
 #토큰을 DEBUG로 고르는 로직. 테스트용과 운영용 봇을 분리하는 습관은 좋음
 
-WHIELIST = [int(i) for i in os.getenv("WHIELIST", "").split(",") if i.strip()]
+WHITELIST = [int(i) for i in os.getenv("WHIELIST", "").split(",") if i.strip()]
 #디스코드 계정 ID. ID는 .env에 쉼표로 적고 여기서 정수 리스트로 변환. 개발자모드를 켜고 프로필을 우클릭하면 ID를 복사할 수 있음.
 #if i.strip()은 값이 비어있을때 int("") 오류가 나는 걸 막음
 
